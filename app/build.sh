@@ -4,12 +4,13 @@ cd "$(dirname "$0")"
 APP=MchoseHub.app
 rm -rf $APP && mkdir -p $APP/Contents/MacOS
 swiftc -O -parse-as-library main.swift DSP.swift Processor.swift EQView.swift -o $APP/Contents/MacOS/MchoseHub
-mkdir -p $APP/Contents/Resources && cp Presets.json hrir48.bin $APP/Contents/Resources/
+mkdir -p $APP/Contents/Resources && cp Presets.json hrir48.bin AppIcon.icns $APP/Contents/Resources/
 cat > $APP/Contents/Info.plist <<P
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0"><dict>
 <key>CFBundleExecutable</key><string>MchoseHub</string>
 <key>CFBundleIdentifier</key><string>local.mchose.hub</string>
+<key>CFBundleIconFile</key><string>AppIcon</string>
 <key>CFBundleName</key><string>MchoseHub</string>
 <key>CFBundlePackageType</key><string>APPL</string>
 <key>LSUIElement</key><true/>
